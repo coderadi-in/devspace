@@ -1,0 +1,40 @@
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero {
+    background-image: url('/assets/images/desktop/space.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .text-content .para { max-width: 568px; }
+
+.hero .text-content .cta {
+    border: 1px solid var(--color-border-light);
+    backdrop-filter: url(#glass);
+    box-shadow: 2px 2px 8px 1px var(--color-border-light) inset;
+}
+
+.hero .illustrations .illustration {
+    box-shadow: 2px 2px 8px 1px var(--color-border-light) inset;
+    backdrop-filter: url(#glass);
+    transition: box-shadow 0.3s, transform 0.5s ease-out;
+}
+
+.hero .illustrations .illustration:hover {
+    transform: translateY(-12px);
+    box-shadow: 2px 2px 12px 4px var(--color-border-light) inset;
+}
+
+/* ================================================== */
+/* & RESPONSIVENESS */
+/* ================================================== */
+
+@media (max-width: 568px) {
+    .hero { background-image: url('/assets/images/phone/space.webp'); }
+}
+
+@media (max-width: 425px) {
+    .space .illustrations { grid-template-columns: 1fr; }
+}
