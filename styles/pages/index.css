@@ -1,4 +1,18 @@
 /* ================================================== */
+/* LOADER VIEW */
+/* ================================================== */
+
+.loader-view { display: none; }
+
+.loader-view svg {
+    animation: oscillate 0.6s ease infinite;
+    fill: var(--color-text-main);
+}
+
+.loader-view svg:nth-child(2) { animation-delay: 100ms; }
+.loader-view svg:nth-child(3) { animation-delay: 200ms; }
+
+/* ================================================== */
 /* HERO */
 /* ================================================== */
 
@@ -6,6 +20,7 @@
     background-image: url('/assets/images/desktop/space.webp');
     background-position: center;
     background-size: cover;
+    padding-top: 149px;
 }
 
 .hero .text-content .para { max-width: 568px; }
@@ -28,13 +43,89 @@
 }
 
 /* ================================================== */
+/* EXPLORE */
+/* ================================================== */
+
+.explore .image-content { overflow: hidden; }
+.explore .image-content .img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.5s ease-out;
+}
+
+.explore .image-content .img:hover { transform: scale(1.05); }
+
+.explore .listings .listing { border-left: 1px solid var(--color-border-dark); }
+
+/* ================================================== */
+/* ENQUIRE */
+/* ================================================== */
+
+.enquire .cta { align-items: stretch; }
+.enquire .cta:hover .btn:first-child { margin-right: -12px; }
+
+.enquire .cta .btn {
+    background-color: var(--color-accent-main);
+    text-decoration: none;
+    color: var(--color-bg-main);
+    align-self: stretch;
+    transition: color 0.3s, margin 0.3s;
+}
+
+.enquire .cta .btn:first-child {
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    border-radius: 8px 0 0 8px;
+}
+
+.enquire .cta .btn:last-child {
+    clip-path: polygon(5% 0, 100% 0, 100% 100%, 3% 100%);
+    border-radius: 0 8px 8px 0;
+}
+
+/* ================================================== */
+/* WORK */
+/* ================================================== */
+
+.work {
+    background-image: url('/assets/images/desktop/work.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+
+.work::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+.work .form-content {
+    box-shadow: 2px 2px 8px 1px var(--color-border-light) inset;
+    background-color: var(--color-surface-alt);
+}
+
+.work .form-content .input {
+    background-color: var(--color-text-main);
+    color: var(--color-bg-main);
+}
+
+.work .form-content .input.faulty { outline: 2px solid #DF2935A1; }
+.work .form-content .input.faulty::placeholder { color: var(--color-state-red); }
+
+.work .form-content .btn { width: 100%; }
+
+/* ================================================== */
 /* & RESPONSIVENESS */
 /* ================================================== */
 
 @media (max-width: 568px) {
     .hero { background-image: url('/assets/images/phone/space.webp'); }
+    .work { background-image: url('/assets/images/phone/work.webp'); }
 }
 
 @media (max-width: 425px) {
-    .space .illustrations { grid-template-columns: 1fr; }
+    .hero .illustrations { grid-template-columns: 1fr; }
 }

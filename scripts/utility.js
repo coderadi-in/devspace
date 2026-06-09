@@ -2,6 +2,7 @@
 // ELEMENT REFERENCE
 // ==================================================
 
+const toastContainer = document.querySelector('.toast-container');
 const links = document.querySelectorAll('.link, .ulink');
 const headerMenu = document.querySelector('.menu-btn');
 const sections = document.querySelectorAll(".section");
@@ -12,7 +13,7 @@ const navBar = document.querySelector('.nav');
 // ==================================================
 
 // * FUNCTION TO ADD CLICK ANIMATION IN A LINK WHEN CLICKED
-function updateClickAnimation(link) {
+export function updateClickAnimation(link) {
     link.classList.add('anim-clicked');
     setTimeout(() => {
         link.classList.remove('anim-clicked');
@@ -37,10 +38,47 @@ export function startSectionObserver() {
 }
 
 // * FUNCTION TO TOGGLE CLASSLIST OF ALL ELEMENTS WITH PROVIDED SELECTOR
-function toggleClass(className, selector) {
+export function toggleClass(className, selector) {
     document.querySelectorAll(selector).forEach((elem) => {
         elem.classList.toggle(className);
     });
+}
+
+// * FUNCTION TO CREATE A TOAST NOTIFICATION
+export function sendToastNotification(message, iconContent, accent) {
+    // CREATE NOTIFICATION WRAP
+    const notificationRow = document.createElement('div');
+    notificationRow.classList.add('notification-row', 'row', 'gap-12', 'p-16', 'rounded-12', accent);
+    // notificationRow.style.border = `1px solid ${accent}`;
+    
+    // CREATE & APPEND NOTIFICATION ICON
+    const notificationIcon = document.createElement('span');
+    notificationIcon.classList.add('symbol');
+    notificationIcon.setAttribute('aria-label', 'Notification Icon');
+    notificationIcon.style.color = accent;
+    notificationIcon.textContent = iconContent;
+
+    // CREATE & APPEND NOTIFICATION TEXT
+    const notificationText = document.createElement('span');
+    notificationText.classList.add('text');
+    notificationText.setAttribute('aria-label', 'Notification Text');
+    notificationText.textContent = message;
+
+    // APPEND NOTIFICATION IN CONTAINER
+    notificationRow.appendChild(notificationIcon);
+    notificationRow.appendChild(notificationText);
+    toastContainer.appendChild(notificationRow);
+
+    // NOTIFY ON THE SCREEN
+    setTimeout(() => {
+        notificationRow.classList.add('show');
+    }, 100);
+    setTimeout(() => {
+        notificationRow.classList.remove('show');
+    }, 3100);
+    setTimeout(() => {
+        toastContainer.removeChild(notificationRow);
+    }, 3700);
 }
 
 // ==================================================

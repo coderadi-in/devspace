@@ -24,6 +24,16 @@
     50% { transform: scale(0.95); }
 }
 
+@keyframes rotateAnimation {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes oscillate {
+    0%, 50%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-4px); }
+    75% { transform: translateY(4px); }
+}
+
 .animated-arrow {
     position: absolute;
     bottom: 20px;
@@ -33,6 +43,7 @@
 }
 
 .anim-clicked { animation: clickAnimation 0.3s ease forwards; }
+.rotate { animation: rotateAnimation 3s linear(0, 0.0114, 0.0427, 0.0898, 0.149, 0.2169, 0.2906, 0.3673, 0.445, 0.5216, 0.5958, 0.6663, 0.7321, 0.7926, 0.8474, 0.8962, 0.9389, 0.9758, 1.0069, 1.0325, 1.053, 1.0689, 1.0805, 1.0884, 1.093, 1.0947, 1.0941, 1.0915, 1.0873, 1.0819, 1.0756, 1.0687, 1.0614, 1.0541, 1.0468, 1.0397, 1.0329, 1.0266, 1.0208, 1.0155, 1.0107, 1.0066, 1.003, 0.9999, 0.9974, 0.9953, 0.9937, 0.9926, 0.9917, 0.9913, 0.991, 0.9911, 0.9913, 0.9916, 0.9921, 0.9927, 0.9934, 0.994, 0.9947, 0.9954, 0.9961, 0.9968, 0.9974, 0.9979, 0.9984, 0.9989, 0.9993, 0.9997, 1, 1.0002, 1.0004, 1.0006, 1.0007, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0007, 1.0006, 1.0006, 1.0005, 1.0004, 1.0004, 1.0003, 1.0003, 1.0002, 1.0002, 1.0001, 1.0001, 1, 1, 1, 1, 0.9999, 0.9999, 0.9999, 0.9999, 1) infinite; }
 
 /* ================================================== */
 /* LOADER */
@@ -61,7 +72,7 @@
 /* ! ANIMATIONS */
 /* ================================================== */
 
-.section {
+/* .section {
     opacity: 0;
     transform: translateY(20px);
     transition:
@@ -81,7 +92,7 @@
         transform: none;
         transition: none;
     }
-}
+} */
 
 /* ================================================== */
 /* HEADER */
@@ -92,7 +103,7 @@
     top: -89px;
     background-color: var(--color-surface-main);
     backdrop-filter: blur(4px);
-    z-index: 99;
+    z-index: 20;
 }
 
 .header .section:first-child { border-bottom: 1px solid var(--color-border-dark); }
@@ -121,7 +132,7 @@
 
 .nav {
     position: fixed;
-    z-index: 50;
+    z-index: 10;
     top: 0;
     left: 0;
     width: min(768px, 80vw);
@@ -154,6 +165,16 @@
 .nav.active .list li { transform: translateX(0); }
 
 /* ================================================== */
+/* FOOTER */
+/* ================================================== */
+
+.footer {
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+}
+
+/* ================================================== */
 /* BASIC */
 /* ================================================== */
 
@@ -172,6 +193,9 @@
     
     --color-border-dark: #FFFFFF4D;
     --color-border-light: #FFFFFF33;
+
+    --color-state-red: #DF2935;
+    --color-state-green: #488B49;
 }
 
 * {
@@ -212,6 +236,8 @@ html {
     margin: 0 auto;
 }
 
+.main { background-color: var(--color-bg-main); }
+
 .hero {
     margin-top: -149px;
     transition: height 0.3s;
@@ -220,6 +246,34 @@ html {
 
 @media (max-width: 568px) {
     .section.p-48 { padding: 20px !important; }
+}
+
+/* ================================================== */
+/* TOAST NOTIFICATIONS */
+/* ================================================== */
+
+.toast-container {
+    position: fixed;
+    z-index: 30;
+    top: 20px;
+    right: 20px;
+    pointer-events: none;
+}
+
+.toast-container .notification-row {
+    opacity: 0;
+    transform: translateY(-48px);
+    background-color: var(--color-surface-main);
+    box-shadow: 2px 2px 8px 1px var(--color-border-light) inset;
+    backdrop-filter: url(#glass);
+    transition:
+        transform 0.6s linear(0, 0.0086, 0.0322, 0.068, 0.1132, 0.1654, 0.2227, 0.2832, 0.3453, 0.4078, 0.4695, 0.5295, 0.5871, 0.6418, 0.6932, 0.7409, 0.7849, 0.8249, 0.861, 0.8933, 0.9219, 0.9469, 0.9685, 0.987, 1.0025, 1.0154, 1.0258, 1.034, 1.0403, 1.0448, 1.0478, 1.0495, 1.05, 1.0497, 1.0486, 1.0468, 1.0446, 1.042, 1.0392, 1.0362, 1.033, 1.0299, 1.0268, 1.0238, 1.0209, 1.0182, 1.0156, 1.0132, 1.011, 1.0089, 1.0071, 1.0055, 1.004, 1.0028, 1.0017, 1.0007, 0.9999, 0.9993, 0.9987, 0.9983, 0.998, 0.9978, 0.9976, 0.9975, 0.9975, 0.9975, 0.9976, 0.9976, 0.9978, 0.9979, 0.998, 0.9982, 0.9983, 0.9985, 0.9986, 0.9988, 0.9989, 0.9991, 0.9992, 0.9993, 0.9994, 0.9995, 0.9996, 0.9997, 0.9998, 0.9999, 0.9999, 1, 1, 1, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1.0001, 1),
+        opacity 0.3s;
+}
+
+.toast-container .notification-row.show {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 /* ================================================== */
@@ -473,7 +527,7 @@ html {
 /* ================================================== */
 
 .input {
-    background-color: var(--color-surface-alt);
+    background-color: var(--color-bg-card);
     color: var(--color-text-main);
     border: 1px solid var(--color-border);
     padding: 8px;
