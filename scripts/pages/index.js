@@ -113,7 +113,7 @@ async function submitForm() {
 // ==================================================
 
 // & INITIAL DISPLAY SETTINGS
-// document.addEventListener("DOMContentLoaded", hideLoader);
+document.addEventListener("DOMContentLoaded", hideLoader);
 
 // & EVENT LISTENER FOR SUBMIT-BTN CLICK
 submitBtn.addEventListener('click', submitForm);

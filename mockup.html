@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Mockups &bull; devspace</title>
+
+    <meta name="description"
+        content="coderadi devspace is Aditya's digital studio where he builds demo assets and mockups in his spare time and he uses this space as a medium to provide webpage previews to clients.">
+
+    <meta name="keywords"
+        content="coderadi, devspace, coderadi devspace, coderadi space, coderadi studio, coderadi digital, coderadi clients library, coderadi assets library, coderadi library">
+
+    <link rel="stylesheet" href="styles/utility.css">
+    <link rel="stylesheet" href="styles/pages/mockups.css">
+</head>
+<body>
+    <svg style="position: absolute; width: 0; height: 0;">
+        <filter id="glass" x="-50%" y="-50%" width="200%" height="200%" primitiveUnits="objectBoundingBox">
+
+            <feTurbulence type="fractalNoise" baseFrequency="0.028" result="map" />
+
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur" />
+
+            <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R" yChannelSelector="G">
+            </feDisplacementMap>
+        </filter>
+    </svg>
+
+    <svg style="position: absolute; width: 0; height: 0;">
+        <filter id="glassIntense" x="-50%" y="-50%" width="200%" height="200%" primitiveUnits="objectBoundingBox">
+
+            <feTurbulence type="fractalNoise" baseFrequency="1" result="map" />
+
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur" />
+
+            <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R" yChannelSelector="G">
+            </feDisplacementMap>
+        </filter>
+    </svg>
+
+    <div class="toast-container column gap-12"></div>
+
+    <header class="header w-full">
+        <section class="section p-20 grid cols-3">
+            <button class="menu-btn link btn row gap-12">
+                <div class="menu-symbol menu-toggled column gap-8">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                </div>
+
+                <span class="text">Menu</span>
+            </button>
+
+            <div class="center">
+                <a href="/index.html" class="link">
+                    <img src="assets/icons/logo.png" alt="coderadi logo" class="img logo">
+                </a>
+            </div>
+
+            <div class="actions row h-en gap-8">
+                <a href="#enquire" class="link symbol">support_agent</a>
+                <a href="#work" class="link symbol">handshake</a>
+            </div>
+        </section>
+
+        <section class="section p-20 res-row h-en gap-16">
+            <a href="#explore" class="link">About devspace</a>
+            <a href="https://coderadi.in" target="_blank" rel="noopener noreferrer" class="link">Official</a>
+        </section>
+    </header>
+
+    <nav class="nav menu-toggled">
+        <section class="section p-20 column h-sb">
+            <div class="spare-element"></div>
+
+            <ul class="list column gap-16 text-right">
+                <li><a href="/mockup.html" class="link uppercase fw-500">mockups</a></li>
+                <li><a href="/index.html#explore" class="link uppercase fw-500">about</a></li>
+                <li><a href="/index.html#enquire" class="link uppercase fw-500">enquire</a></li>
+                <li><a href="/index.html#work" class="link uppercase fw-500">work with me</a></li>
+                <li><a href="https://coderadi.in" target="_blank" rel="noopener noreferrer"
+                        class="link uppercase fw-500">Official page</a></li>
+            </ul>
+
+            <span class="mini">coderadi devspace</span>
+        </section>
+    </nav>
+
+    <main class="main" id="main">
+        <section class="hero" id="hero">
+            <section class="section p-48 column h-en gap-12">
+                <h1 class="h1">Mockups library</h1>
+                <p class="para">Explore all mockup assets that you can customize for you business.</p>
+            </section>
+        </section>
+
+        <section class="mockups" id="mockups">
+            <section class="section p-48 grid cols-auto-400 gap-24">
+                <a href="https://f-2602-fl-090.coderadi.space" class="link mockup" target="_blank">
+                    <div class="image-content">
+                        <img src="library/f-2602-fl-090.webp" alt="Cover" class="img">
+                    </div>
+
+                    <div class="text-content column gap-12 p-16 bg-card">
+                        <h2 class="h2">Fatloss coach page</h2>
+                        <p class="para">Minimal page setup for fatloss coaches to close clients on autopilot.</p>
+                    </div>
+                </a>
+                
+                <div class="space-element"></div>
+                <div class="space-element"></div>
+            </section>
+        </section>
+    </main>
+    
+    <footer class="footer bg-card w-full">
+        <section class="section p-20 column gap-16">
+            <span class="text text-center">coderadi space</span>
+            <hr class="divider">
+
+            <div class="grid cols-auto-320 gap-16 w-full">
+                <a href="/mockup.html" class="link uppercase">mockups</a>
+                <a href="/index.html#explore" class="link uppercase">about</a>
+                <a href="/index.html#enquire" class="link uppercase">enquire</a>
+                <a href="/index.html#work" class="link uppercase">work with me</a>
+                <a href="https://coderadi.in" target="_blank" rel="noopener noreferrer" class="link uppercase">Official page</a>
+                <a target="_blank" href="https://instagram.com/coderadi.in" class="link uppercase">Instagram</a>
+                <a target="_blank" href="https://youtube.com/@coderadi-in" class="link uppercase">YouTube</a>
+                <a target="_blank" href="https://github.com/coderadi-in" class="link uppercase">GitHub</a>
+            </div>
+
+            <hr class="divider">
+        </section>
+    </footer>
+
+    <script type="module" src="scripts/utility.js"></script>
+    <script type="module" src="scripts/fadeIn.js"></script>
+    <script type="module" src="scripts/pages/mockup.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainMargin = document.querySelector('.footer').clientHeight;
+            document.querySelector('.main').style.marginBottom = `${mainMargin}px`;
+        });
+    </script>
+</body>
+</html>
